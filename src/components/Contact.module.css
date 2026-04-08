@@ -1,0 +1,51 @@
+.contact { background: var(--bg2); }
+
+.sub {
+  font-size: 0.85rem; color: var(--muted);
+  max-width: 580px; margin-bottom: 3rem; line-height: 1.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.links { display: flex; flex-direction: column; gap: 0.9rem; }
+.item  {
+  display: flex; align-items: center; gap: 1rem;
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1rem 1.2rem; transition: all 0.3s;
+}
+.item:hover { border-color: var(--cyan-border); transform: translateX(6px); }
+.item:hover .arrow { opacity: 1; transform: translateX(4px); }
+
+.icon {
+  width: 42px; height: 42px; border-radius: 8px; flex-shrink: 0;
+  background: var(--cyan-dim); border: 1px solid var(--cyan-border);
+  color: var(--cyan); display: flex; align-items: center; justify-content: center;
+  font-size: 0.95rem;
+}
+
+.text  { flex: 1; display: flex; flex-direction: column; }
+.label { font-size: 0.63rem; color: var(--muted); letter-spacing: 0.08em; }
+.value { font-size: 0.78rem; color: var(--text); margin-top: 0.12rem; }
+
+.arrow { color: var(--cyan); font-size: 0.85rem; opacity: 0; transition: all 0.25s; }
+
+/* Terminal */
+.terminal {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.4rem;
+  font-size: 0.8rem; margin-bottom: 1.5rem; line-height: 1.95;
+}
+.prompt { color: var(--cyan); margin-right: 0.5rem; }
+.out    { color: var(--text); padding-left: 1.2rem; }
+.cursor { color: var(--cyan); animation: blink 1s infinite; }
+
+.cta { width: 100%; font-size: 0.85rem; padding: 1rem 2rem; }
+
+@media (max-width: 800px) {
+  .grid { grid-template-columns: 1fr; gap: 2rem; }
+}

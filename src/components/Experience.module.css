@@ -1,0 +1,60 @@
+.exp { background: var(--bg); }
+
+.timeline { position: relative; padding-left: 2rem; }
+.line {
+  position: absolute; left: 0; top: 8px; bottom: 0;
+  width: 1px; background: linear-gradient(var(--cyan), transparent);
+}
+.item  { position: relative; margin-bottom: 3rem; }
+.dot   {
+  position: absolute; left: -2.42rem; top: 1.3rem;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--cyan); box-shadow: var(--cyan-glow);
+}
+.date  {
+  font-size: 0.72rem; color: var(--cyan);
+  letter-spacing: 0.08em; margin-bottom: 0.75rem;
+}
+.card  {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 2rem; transition: all 0.3s;
+}
+.card:hover { border-color: rgba(0,229,255,0.25); box-shadow: 0 12px 40px rgba(0,229,255,0.05); }
+
+.header  {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; margin-bottom: 1rem; gap: 1rem;
+}
+.role    { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--white); }
+.company { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+.badge   {
+  font-size: 0.63rem; flex-shrink: 0;
+  background: var(--cyan-dim); border: 1px solid var(--cyan-border);
+  color: var(--cyan); padding: 0.25rem 0.7rem;
+  border-radius: 100px; letter-spacing: 0.06em;
+}
+.tech {
+  display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem;
+}
+.tech span {
+  font-size: 0.63rem; background: var(--bg3);
+  border: 1px solid var(--border); color: var(--muted);
+  padding: 0.2rem 0.6rem; border-radius: 4px;
+}
+.bullets { display: flex; flex-direction: column; gap: 0.55rem; }
+.bullets li {
+  font-size: 0.8rem; color: var(--muted); line-height: 1.7;
+  padding-left: 1.2rem; position: relative;
+}
+.bullets li::before {
+  content: '→'; position: absolute; left: 0;
+  color: var(--coral); font-size: 0.75rem; top: 0.05rem;
+}
+/* Bold spans inside bullets get cyan colour */
+.bullets li :global(b) { color: var(--cyan); font-weight: 700; }
+
+@media (max-width: 600px) {
+  .timeline { padding-left: 1rem; }
+  .dot { left: -1.5rem; }
+  .card { padding: 1.2rem; }
+}

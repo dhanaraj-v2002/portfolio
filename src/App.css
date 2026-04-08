@@ -1,0 +1,163 @@
+/* ==========================================
+   DHANARAJ V — DEVOPS PORTFOLIO
+   Global Styles + CSS Variables
+   ========================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cyan:        #00e5ff;
+  --coral:       #ff4d6d;
+  --cyan-dim:    rgba(0, 229, 255, 0.1);
+  --coral-dim:   rgba(255, 77, 109, 0.1);
+  --cyan-border: rgba(0, 229, 255, 0.25);
+  --coral-border:rgba(255, 77, 109, 0.25);
+  --cyan-glow:   0 0 28px rgba(0, 229, 255, 0.4);
+  --coral-glow:  0 0 28px rgba(255, 77, 109, 0.4);
+  --bg:          #070b12;
+  --bg2:         #0c1220;
+  --bg3:         #111827;
+  --border:      rgba(255, 255, 255, 0.07);
+  --text:        #e2e8f0;
+  --muted:       #64748b;
+  --white:       #ffffff;
+  --green:       #00ff88;
+  --font-display:'Syne', sans-serif;
+  --font-mono:   'Space Mono', monospace;
+  --radius:      12px;
+  --radius-lg:   20px;
+  --nav-h:       68px;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-mono);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.7;
+  cursor: none;
+}
+
+body.menu-open { overflow: hidden; }
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+button { cursor: none; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 2px; }
+
+/* ── Section helpers ── */
+.section {
+  padding: clamp(5rem, 10vh, 8rem) 0;
+  position: relative;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+}
+.section-tag {
+  font-size: 0.72rem;
+  color: var(--coral);
+  letter-spacing: 0.14em;
+  margin-bottom: 0.6rem;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 3rem;
+  letter-spacing: -0.01em;
+}
+.accent-cyan  { color: var(--cyan); }
+.accent-coral { color: var(--coral); }
+
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: var(--cyan);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.85rem 2rem;
+  border-radius: 4px;
+  border: none;
+  transition: all 0.25s;
+  cursor: none;
+  text-decoration: none;
+}
+.btn-primary:hover { box-shadow: var(--cyan-glow); transform: translateY(-2px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  padding: 0.85rem 2rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  transition: all 0.25s;
+  cursor: none;
+  text-decoration: none;
+}
+.btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); background: var(--cyan-dim); }
+
+/* ── Noise overlay ── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* ── Animations ── */
+@keyframes blink     { 0%,100%{ opacity:1 } 50%{ opacity:0 } }
+@keyframes float     { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-10px) } }
+@keyframes spin      { to{ transform:rotate(360deg) } }
+@keyframes pulse-dot { 0%,100%{ opacity:1;transform:scale(1) } 50%{ opacity:.5;transform:scale(1.5) } }
+@keyframes scroll-pulse { 0%,100%{ opacity:.4 } 50%{ opacity:1 } }
+@keyframes fadeUp    { from{ opacity:0;transform:translateY(30px) } to{ opacity:1;transform:translateY(0) } }
+
+/* ── Responsive cursor hide on touch ── */
+@media (hover: none) {
+  body { cursor: auto; }
+  button, a { cursor: pointer; }
+}
+
+/* ── Custom Cursor (global, not module) ── */
+.cursor-dot {
+  position: fixed; top: 0; left: 0;
+  width: 6px; height: 6px;
+  background: var(--cyan); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  mix-blend-mode: difference;
+  transition: background 0.2s;
+  will-change: transform;
+}
+.cursor-ring {
+  position: fixed; top: 0; left: 0;
+  width: 32px; height: 32px;
+  border: 1.5px solid var(--cyan); border-radius: 50%;
+  pointer-events: none; z-index: 9998; opacity: 0.6;
+  transition: width 0.3s, height 0.3s, border-color 0.2s;
+  will-change: transform;
+}
