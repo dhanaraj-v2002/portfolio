@@ -12,6 +12,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./react-portfolio   # ✅ IMPORTANT FIX
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -19,7 +23,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20   # ✅ updated
+          node-version: 20
 
       - name: Install dependencies
         run: npm install
@@ -31,4 +35,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./react-portfolio/dist   # ✅ IMPORTANT
