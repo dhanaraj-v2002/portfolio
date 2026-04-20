@@ -117,38 +117,44 @@ export const experience = [
 export const projects = [
   {
     num: '01',
-    title: 'End-to-End EKS Deployment\nwith Terraform & GitOps',
-    desc: 'Production-ready Elastic Kubernetes Service infrastructure with a fully automated GitOps-based CI/CD pipeline enabling zero-touch deployments from code commit to live URL.',
+    title: 'AWS EKS Deployment with CodePipeline',
+    desc: 'End-to-end CI/CD pipeline deploying a containerized React application to AWS EKS using AWS CodePipeline and CodeBuild with automated build, push, and deployment stages.',
     highlights: [
-      'Kubernetes manifests, IAM roles for service accounts (IRSA), ECR integration',
-      'Helm charts with Prometheus/Grafana observability stack',
-      'Secure cluster access controls — fully cloud-agnostic SaaS infrastructure',
+      'Containerized React application using Docker and pushed images to AWS ECR',
+      'Built automated CI/CD pipeline using AWS CodePipeline and CodeBuild for seamless deployments',
+      'Deployed application to AWS EKS using Kubernetes manifests (Deployment & Service YAML)',
+      'Integrated AWS CloudWatch for centralized logging and monitoring of build and runtime',
+      'Enabled zero-downtime deployments with fully automated release workflow'
     ],
-    tech: ['Terraform', 'AWS EKS', 'Docker', 'GitHub Actions', 'Helm', 'IAM', 'ECR'],
+    tech: ['React', 'Docker', 'AWS ECR', 'AWS EKS', 'CodeBuild', 'CodePipeline', 'CloudWatch', 'GitHub'],
     featured: true,
   },
   {
     num: '02',
-    title: 'Multi-Environment Infrastructure Automation',
-    desc: 'Reusable Terraform modules for networking, compute & storage with workspace strategy and remote state management for dev, staging & production environments.',
+    title: 'AWS EKS Deployment with Jenkins & Terraform',
+    desc: 'Infrastructure provisioning and CI/CD automation for deploying a containerized React application to AWS EKS using Terraform and Jenkins.',
     highlights: [
-      'S3 + DynamoDB remote state locking strategy',
-      'Zero manual intervention, fully reproducible environments',
-      'Infrastructure provisioning time: hours → minutes',
+      'Provisioned AWS infrastructure (VPC, IAM roles, EC2) using Terraform with reusable and modular configurations',
+      'Deployed Dockerized React application to AWS EKS using Kubernetes manifests (Deployment & Service YAML)',
+      'Configured Jenkins declarative pipeline with GitHub webhook for automated build, Docker image push to DockerHub, and EKS deployment',
+      'Implemented end-to-end CI/CD pipeline with automated triggers on code commits',
+      'Set up monitoring to track application and cluster health with alerting for downtime'
     ],
-    tech: ['Terraform', 'AWS VPC', 'EC2', 'RDS', 'S3', 'DynamoDB'],
+    tech: ['React', 'Docker', 'DockerHub', 'Terraform', 'AWS EKS', 'Jenkins', 'GitHub'],
     featured: false,
   },
   {
     num: '03',
-    title: 'Container Optimization & Image Lifecycle',
-    desc: 'Optimized Docker images using multi-stage builds and established automated image pipelines with semantic versioning and lifecycle policies for Amazon ECR.',
+    title: 'DevOps Build – AWS EC2 Deployment with Jenkins & Docker',
+    desc: 'Automated CI/CD pipeline for building, containerizing, and deploying applications on AWS EC2 using Jenkins and Docker.',
     highlights: [
-      '30% image size reduction via multi-stage Docker builds',
-      'Automated semantic versioning in GitHub Actions',
-      'ECR lifecycle policies for cost control',
+      'Automated Docker image build and deployment using custom Bash scripts and Docker Compose',
+      'Configured Jenkins pipeline integrated with GitHub for continuous build and deployment',
+      'Implemented automated image push to DockerHub with version control for dev and prod environments',
+      'Deployed application on AWS EC2 (t2.micro) with secure configuration and controlled SSH access',
+      'Ensured consistent local and production environments using Docker-based containerization'
     ],
-    tech: ['Docker', 'Amazon ECR', 'GitHub Actions', 'Docker Compose'],
+    tech: ['React', 'Docker', 'Docker Compose', 'Jenkins', 'AWS EC2', 'Bash', 'GitHub', 'DockerHub'],
     featured: false,
   },
 ]
